@@ -15,7 +15,7 @@ PRODUCT_COPY_FILES += \
 
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp \
+    persist.sys.usb.config=mtp,adb \
     camera2.portability.force_api=1
 
 # Charger
