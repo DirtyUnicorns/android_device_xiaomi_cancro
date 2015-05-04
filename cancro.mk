@@ -285,7 +285,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8974
-	
+
 # IR package
 PRODUCT_PACKAGES += \
     consumerir.msm8974
@@ -381,6 +381,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
 
+ADDITIONAL_DEFAULT_PROPERTIES += \
+ro.secure=0 \
+ro.adb.secure=0
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -397,4 +401,3 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk
 
 # call the proprietary setup
 $(call inherit-product, vendor/xiaomi/cancro/cancro-vendor.mk)
-
