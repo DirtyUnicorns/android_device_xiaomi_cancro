@@ -9,6 +9,10 @@ LOCAL_PATH := device/xiaomi/cancro
 
 PRODUCT_CHARACTERISTICS := nosdcard
 
+# TRWP recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab
+
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp \
