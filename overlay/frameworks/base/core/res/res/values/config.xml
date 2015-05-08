@@ -47,9 +47,9 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>1</item>
-        <item>4</item>
-        <item>40</item>
+        <item>10</item>
+        <item>64</item>
+        <item>140</item>
         <item>350</item>
         <item>600</item>
         <item>1000</item>
