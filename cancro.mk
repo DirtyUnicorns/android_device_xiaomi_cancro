@@ -54,9 +54,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/mount_ext4.sh:system/bin/mount_ext4.sh \
     $(LOCAL_PATH)/rootdir/root/e2fsck_static:root/sbin/e2fsck_static
 
-#PRODUCT_PACKAGES += \
-#    dualboot_init
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8974
@@ -85,10 +82,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_short_ons_1="" \
     persist.rild.nitz_short_ons_2="" \
     persist.rild.nitz_short_ons_3=""
-
-# Lights
-#PRODUCT_PACKAGES += \
-#    lights.msm8974
 
 # Power
 PRODUCT_PACKAGES += \
