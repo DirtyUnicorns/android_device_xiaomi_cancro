@@ -39,15 +39,14 @@ class LocAdapterProxyBase;
 
 class LocAdapterBase {
 protected:
-    LOC_API_ADAPTER_EVENT_MASK_T mEvtMask;
+    const LOC_API_ADAPTER_EVENT_MASK_T mEvtMask;
     ContextBase* mContext;
     LocApiBase* mLocApi;
     LocAdapterProxyBase* mLocAdapterProxyBase;
     const MsgTask* mMsgTask;
 
     inline LocAdapterBase(const MsgTask* msgTask) :
-        mEvtMask(0), mContext(NULL), mLocApi(NULL),
-        mLocAdapterProxyBase(NULL), mMsgTask(msgTask) {}
+        mEvtMask(0), mContext(NULL), mLocApi(NULL), mLocAdapterProxyBase(NULL), mMsgTask(msgTask) {}
 public:
     inline virtual ~LocAdapterBase() { mLocApi->removeAdapter(this); }
     LocAdapterBase(const LOC_API_ADAPTER_EVENT_MASK_T mask,
@@ -67,15 +66,6 @@ public:
 
     inline void sendMsg(const LocMsg* msg) {
         mMsgTask->sendMsg(msg);
-    }
-
-    inline void updateEvtMask(LOC_API_ADAPTER_EVENT_MASK_T event,
-                       loc_registration_mask_status isEnabled)
-    {
-        mEvtMask =
-            isEnabled == LOC_REGISTRATION_MASK_ENABLED ? (mEvtMask|event):(mEvtMask&~event);
-
-        mLocApi->updateEvtMask();
     }
 
     // This will be overridden by the individual adapters
@@ -110,7 +100,6 @@ public:
     virtual bool requestNiNotify(GpsNiNotification &notify,
                                  const void* data);
     inline virtual bool isInSession() { return false; }
-    virtual void shutdown();
     ContextBase* getContext() const { return mContext; }
 };
 
