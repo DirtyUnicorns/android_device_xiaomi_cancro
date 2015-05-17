@@ -133,6 +133,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
+ifeq ($(MI3_BUILD),true)
 # NFC
 PRODUCT_PACKAGES += \
     nfc_nci.bcm2079x.default \
@@ -145,6 +146,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     $(LOCAL_PATH)/nfc/libnfc-brcm-20791b05.conf:system/etc/libnfc-brcm-20791b05.conf \
     $(LOCAL_PATH)/nfc/nfcee_access_debug.xml:system/etc/nfcee_access.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.nfc.port=I2C
+endif
 
 # Thermal config
 PRODUCT_COPY_FILES += \
@@ -329,7 +334,6 @@ endif
 
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.nfc.port=I2C \
     ro.fm.transmitter=false \
     com.qc.hardware=true \
     persist.demo.hdmirotationlock=false \
