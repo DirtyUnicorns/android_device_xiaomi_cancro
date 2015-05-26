@@ -329,6 +329,6 @@
     <string name="config_perf_profile_default_entry">1</string>
 
     <!-- Is the device LTE capable -->
-    <bool name="config_lte_capable">false</bool>
+    <bool name="config_lte_capable">true</bool>
 
 </resources>

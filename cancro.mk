@@ -2,9 +2,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Common QCOM configuration tools
 $(call inherit-product, device/qcom/common/Android.mk)
-
+ifeq ($(MI3_BUILD),true)
 DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay
-
+endif
+ifeq ($(MI4_BUILD),true)
+DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay-mi4
+endif
 LOCAL_PATH := device/xiaomi/cancro
 
 PRODUCT_CHARACTERISTICS := nosdcard
