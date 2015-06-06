@@ -25,8 +25,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/chargeonlymode:root/sbin/chargeonlymode
 
-# Camera Wrapper
-PRODUCT_PACKAGES += camera.msm8974
 
 # Ramdisk
 PRODUCT_PACKAGES += \
