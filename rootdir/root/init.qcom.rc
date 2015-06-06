@@ -114,7 +114,9 @@ on boot
     chmod 2755 /data/misc/perfd
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
+    mkdir /persist/drm 0770 system system
 
+	
     chown root radio /proc/cmdline
     chmod 0444 /proc/cmdline
 
