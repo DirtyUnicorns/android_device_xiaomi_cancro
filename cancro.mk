@@ -2,12 +2,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Common QCOM configuration tools
 $(call inherit-product, device/qcom/common/Android.mk)
-ifeq ($(MI3_BUILD),true)
+
 DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay
-endif
-ifeq ($(MI4_BUILD),true)
-DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay-mi4
-endif
+
 LOCAL_PATH := device/xiaomi/cancro
 
 PRODUCT_CHARACTERISTICS := nosdcard
@@ -140,7 +137,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
-ifeq ($(MI3_BUILD),true)
 # NFC
 PRODUCT_PACKAGES += \
     nfc_nci.bcm2079x.default \
@@ -153,10 +149,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     $(LOCAL_PATH)/nfc/libnfc-brcm-20791b05.conf:system/etc/libnfc-brcm-20791b05.conf \
     $(LOCAL_PATH)/nfc/nfcee_access_debug.xml:system/etc/nfcee_access.xml
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.nfc.port=I2C
-endif
 
 # Thermal config
 PRODUCT_COPY_FILES += \
@@ -338,6 +330,7 @@ endif
 
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.nfc.port=I2C \
     ro.fm.transmitter=false \
     com.qc.hardware=true \
     persist.demo.hdmirotationlock=false \
