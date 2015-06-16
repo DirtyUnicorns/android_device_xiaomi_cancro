@@ -224,6 +224,8 @@ PRODUCT_PACKAGES += \
     tinymix
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    mm.enable.smoothstreaming=true \
+    mm.enable.qcom_parser=3310129 \
     persist.speaker.prot.enable=true \
     qcom.hw.aac.encoder=false \
     tunnel.audio.encode=false \
