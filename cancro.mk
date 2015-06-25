@@ -27,7 +27,7 @@ PRODUCT_COPY_FILES += \
 
 # Quick charging
 PRODUCT_PROPERTY_OVERRIDES += \
-	    persist.usb.hvdcp.detect=true
+    persist.usb.hvdcp.detect=true
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -395,8 +395,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.print.xml:system/etc/permissions/android.software.print.xml
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
-ro.secure=0 \
-ro.adb.secure=0
+    ro.secure=0 \
+    ro.adb.secure=0
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
