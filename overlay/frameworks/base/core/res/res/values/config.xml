@@ -65,9 +65,9 @@
 	
     <!-- Enable the option to check proximity sensor when deciding whether to
          turn the screen on
-         NOTE ! - Enable for devices that have a fast response proximity sensor -->
-    <bool name="config_proximityCheckOnWake">true</bool>
-    <integer name="config_proximityCheckTimeout">100</integer>
+         NOTE ! - Enable for devices that have a fast response proximity sensor  -->
+    <bool name="config_proximityCheckOnWake">false</bool>
+    <!-- <integer name="config_proximityCheckTimeout">100</integer>-->
 	
 	<!-- Boolean indicating if restoring network selection should be skipped -->
     <!-- The restoring is handled by modem if it is true -->
