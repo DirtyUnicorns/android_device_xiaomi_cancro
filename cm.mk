@@ -23,8 +23,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from cancro device
 $(call inherit-product, device/xiaomi/cancro/cancro.mk)
 
+ifeq ($(XIAOMI_DEVICE),mi3)
 # Enhanced NFC
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+endif
 
 # Inherit some common CM stuff
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
@@ -34,8 +36,17 @@ PRODUCT_NAME := cm_cancro
 PRODUCT_DEVICE := cancro
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_MODEL := MI 3W
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+ifeq ($(XIAOMI_DEVICE),mi3)
+PRODUCT_MODEL := MI 3W
+TARGET_UNOFFICIAL_BUILD_ID := mi3
+endif
+
+ifeq ($(XIAOMI_DEVICE),mi4)
+PRODUCT_MODEL := MI 4W
+TARGET_UNOFFICIAL_BUILD_ID := mi4
+endif
 
 # Build prop overrides
 PRODUCT_BUILD_PROP_OVERRIDES += \

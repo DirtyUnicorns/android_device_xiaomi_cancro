@@ -4,8 +4,15 @@ $(call inherit-product, device/qcom/common/Android.mk)
 # Define LOCAL_PATH
 LOCAL_PATH := device/xiaomi/cancro
 
-# Device overlays
-DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay
+ifeq ($(XIAOMI_DEVICE),mi3)
+# Device overlays (MI3)
+DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay-mi3
+endif
+
+ifeq ($(XIAOMI_DEVICE),mi4)
+# Device overlays (MI4)
+DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay-mi4
+endif
 
 # No sdcard
 PRODUCT_CHARACTERISTICS := nosdcard
@@ -148,6 +155,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensors/sec_config:system/etc/sec_config
 
+ifeq ($(XIAOMI_DEVICE),mi3)
 # NFC
 PRODUCT_PACKAGES += \
     nfc_nci.bcm2079x.default \
@@ -160,6 +168,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     $(LOCAL_PATH)/nfc/libnfc-brcm-20791b05.conf:system/etc/libnfc-brcm-20791b05.conf \
     $(LOCAL_PATH)/nfc/nfcee_access_debug.xml:system/etc/nfcee_access.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.nfc.port=I2C
+endif
 
 # Thermal configs
 PRODUCT_COPY_FILES += \
@@ -331,11 +343,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.alwaysbleon=true \
     qcom.bt.dev_power_class=1
 
-# adb secure
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.secure=0 \
-    ro.adb.secure=0
-
 ifneq ($(QCPATH),)
 # proprietary wifi display, if available
 PRODUCT_BOOT_JARS += \
@@ -344,7 +351,6 @@ endif
 
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.nfc.port=I2C \
     ro.fm.transmitter=false \
     com.qc.hardware=true \
     persist.demo.hdmirotationlock=false \
@@ -369,6 +375,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable Adaptive Multi-Rate Wideband
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.enable.amr.wideband=1
+
+ifeq ($(XIAOMI_DEVICE),mi4)
+# ir_proximity prop
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qti.sensors.ir_proximity=true
+endif
+
+# adb secure
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0
 
 # Permissions
 PRODUCT_COPY_FILES += \
