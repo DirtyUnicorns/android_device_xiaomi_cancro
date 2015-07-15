@@ -21,7 +21,7 @@ Display | 5.0" 1920 x 1080 px               | 5.0" 1920 x 1080px
 Camera  | 13MPx, LED Flash                  | 13MPx, LED Flash
 
 ![Xiaomi Mi3](http://cdn.gsmarena.com/vv/reviewsimg/xiaomi-mi-3/gal/gsmarena_004.jpg "Xiaomi Mi3 in black")
-![Xiaomi Mi4](http://t1.qpic.cn/mblogpic/316cf2876f6179885512/2000.jpg "Xiaomi Mi4 in White")
+![Xiaomi Mi4](http://oi61.tinypic.com/107j29h.jpg "Xiaomi Mi4 in White")
 
 Building
 -------
