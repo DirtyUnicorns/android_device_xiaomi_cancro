@@ -28,8 +28,8 @@ ifeq ($(XIAOMI_DEVICE),mi3)
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 endif
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
+# Inherit some common CM stuff
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Product configuration
 PRODUCT_NAME := cm_cancro
