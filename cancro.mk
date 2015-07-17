@@ -318,6 +318,8 @@ PRODUCT_PACKAGES += \
 
 # FM Radio
 PRODUCT_PACKAGES += \
+    FM2 \
+    FMRecord \
     libqcomfm_jni \
     qcom.fmradio
 
