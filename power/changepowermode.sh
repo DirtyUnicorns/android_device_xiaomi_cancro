@@ -33,7 +33,7 @@ case "$target" in
                  echo "msm_cpufreq"                        > $dev_governor
               ;;
             "1")
-                 #start mpdecision
+                 start mpdecision
                  echo 2265600                              > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
                  echo 2265600                              > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
                  echo 2265600                              > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
@@ -57,7 +57,7 @@ case "$target" in
                  echo "cpubw_hwmon"                        > $dev_governor
              ;;
              "0")
-                 #start mpdecision
+                 start mpdecision
                  echo 1036800                              > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
                  echo 1036800                              > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
                  echo 1036800                              > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
@@ -107,7 +107,7 @@ case "$target" in
                  echo "msm_cpufreq"                        > $dev_governor
               ;;
             "1")
-                 #start mpdecision
+                 start mpdecision
                  echo 2457600                              > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
                  echo 2457600                              > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
                  echo 2457600                              > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
@@ -131,7 +131,7 @@ case "$target" in
                  echo "cpubw_hwmon"                        > $dev_governor
              ;;
              "0")
-                 #start mpdecision
+                 start mpdecision
                  echo 1036800                              > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
                  echo 1036800                              > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
                  echo 1036800                              > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq

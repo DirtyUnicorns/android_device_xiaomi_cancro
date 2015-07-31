@@ -4,29 +4,26 @@ $(call inherit-product, device/qcom/common/Android.mk)
 # Define LOCAL_PATH
 LOCAL_PATH := device/xiaomi/cancro
 
-ifeq ($(XIAOMI_DEVICE),mi3)
-# Device overlays (MI3)
-DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay-mi3
-endif
+# Device overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-ifeq ($(XIAOMI_DEVICE),mi4)
-# Device overlays (MI4)
-DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay-mi4
-endif
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# No sdcard
+# Product configuration
 PRODUCT_CHARACTERISTICS := nosdcard
 
-# TRWP
+# TWRP
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # USB
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
-
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
+
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
 
 # set USB OTG enabled to add support for USB storage type
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -67,10 +64,6 @@ PRODUCT_PACKAGES += \
     init.qcom.wifi.sh \
     qca6234-service.sh \
     usf_post_boot.sh
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/mount_ext4.sh:system/bin/mount_ext4.sh \
-    $(LOCAL_PATH)/rootdir/root/e2fsck_static:root/sbin/e2fsck_static
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -113,11 +106,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     power.msm8974
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/power/changepowermode.sh:system/bin/changepowermode.sh
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.perf.cores_online=1
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/power/changepowermode.sh:system/bin/changepowermode.sh
 
 # WiFi
 PRODUCT_COPY_FILES += \
@@ -159,7 +152,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensors/sec_config:system/etc/sec_config
 
-ifeq ($(XIAOMI_DEVICE),mi3)
 # NFC
 PRODUCT_PACKAGES += \
     nfc_nci.bcm2079x.default \
@@ -175,14 +167,13 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.nfc.port=I2C
-endif
 
 # Thermal configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal/thermal-engine.conf:system/etc/thermal-engine-8974.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-perf.conf:system/etc/thermal-engine-perf.conf
 
-# Proprietery Firmware
+# Proprietary firmware
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/android_model_facea.dat:system/etc/android_model_facea.dat \
     $(LOCAL_PATH)/rootdir/etc/android_model_faceg.dat:system/etc/android_model_faceg.dat \
@@ -215,7 +206,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
-# Media & Audio
+# Media & audio
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libdivxdrmdecrypt \
@@ -285,6 +276,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.qualcomm.sns.daemon=w \
     debug.qualcomm.sns.libsensor1=w
 
+# ir_proximity prop
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qti.sensors.ir_proximity=true
+
+# Enable Adaptive Multi-Rate Wideband
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ril.enable.amr.wideband=1
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
@@ -295,6 +294,10 @@ PRODUCT_PACKAGES += \
     e2fsck_static \
     mke2fs_static \
     resize2fs_static
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/mount_ext4.sh:system/bin/mount_ext4.sh \
+    $(LOCAL_PATH)/rootdir/root/e2fsck_static:root/sbin/e2fsck_static
 
 # libxml2
 PRODUCT_PACKAGES += \
@@ -316,7 +319,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     keystore.msm8974
 
-# FM Radio
+# FM radio
 PRODUCT_PACKAGES += \
     FM2 \
     FMRecord \
@@ -324,9 +327,10 @@ PRODUCT_PACKAGES += \
     qcom.fmradio
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    hw.fm.internal_antenna=true
+    hw.fm.internal_antenna=true \
+    ro.fm.transmitter=false
 
-# Misc dependency packages
+# Misc. dependency packages
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
@@ -355,7 +359,6 @@ endif
 
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.fm.transmitter=false \
     com.qc.hardware=true \
     persist.demo.hdmirotationlock=false \
     ro.hdmi.enable=true \
@@ -374,21 +377,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
     debug.mdpcomp.4k2kSplit=1
-
-# Enable Adaptive Multi-Rate Wideband
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ril.enable.amr.wideband=1
-
-ifeq ($(XIAOMI_DEVICE),mi4)
-# ir_proximity prop
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qti.sensors.ir_proximity=true
-endif
-
-# adb secure
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.secure=0 \
-    ro.adb.secure=0
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -419,10 +407,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.software.print.xml:system/etc/permissions/android.software.print.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml
-
-# Screen density
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 ifneq ($(QCPATH),)
 $(call inherit-product-if-exists, $(QCPATH)/prebuilt_HY11/target/product/msm8974/prebuilt.mk)

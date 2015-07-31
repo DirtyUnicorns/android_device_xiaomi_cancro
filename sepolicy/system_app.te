@@ -1,2 +1,2 @@
-# for Settings' access to VibratorHW
+# CMHW
 allow system_app vibeamp_sysfs:file rw_file_perms;

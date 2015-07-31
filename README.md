@@ -22,7 +22,3 @@ Camera  | 13MPx, LED Flash                  | 13MPx, LED Flash
 
 ![Xiaomi Mi3](http://cdn.gsmarena.com/vv/reviewsimg/xiaomi-mi-3/gal/gsmarena_004.jpg "Xiaomi Mi3 in black")
 ![Xiaomi Mi4](http://oi61.tinypic.com/107j29h.jpg "Xiaomi Mi4 in White")
-
-Building
--------
-To build for MI3 set "export XIAOMI_DEVICE=mi3" or to build for MI4 set "export XIAOMI_DEVICE=mi4" before building.
