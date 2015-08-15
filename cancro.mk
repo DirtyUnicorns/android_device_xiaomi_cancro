@@ -168,6 +168,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.nfc.port=I2C
 
+# NFC remover script for Mi4
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/nfc/removenfc.sh:/install/bin/removenfc.sh
+
 # Thermal configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal/thermal-engine.conf:system/etc/thermal-engine-8974.conf \
