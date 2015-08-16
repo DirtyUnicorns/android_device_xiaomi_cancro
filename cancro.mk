@@ -172,10 +172,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/removenfc.sh:/install/bin/removenfc.sh
 
-# Thermal configs
+# Thermal config
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal/thermal-engine.conf:system/etc/thermal-engine-8974.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-perf.conf:system/etc/thermal-engine-perf.conf
+    $(LOCAL_PATH)/thermal/thermal-engine.conf:system/etc/thermal-engine-8974.conf
 
 # Proprietary firmware
 PRODUCT_COPY_FILES += \
