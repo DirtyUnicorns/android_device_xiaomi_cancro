@@ -26,12 +26,14 @@ if [ $RAW_ID == 1974 ]; then
  rm -rf /system/lib/*nfc*
  rm -rf /system/etc/*nfc*
  rm -rf /system/etc/permissions/*nfc*
+ rm -rf /system/vendor/firmware/*bcm*
 elif [ $RAW_ID == 1972 ]; then
  rm -rf /system/app/NfcNci
  rm -rf /system/priv-app/Tag
  rm -rf /system/lib/*nfc*
  rm -rf /system/etc/*nfc*
  rm -rf /system/etc/permissions/*nfc*
+ rm -rf /system/vendor/firmware/*bcm*
 fi
 
 exit 0
