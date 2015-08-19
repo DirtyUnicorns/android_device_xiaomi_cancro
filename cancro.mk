@@ -65,6 +65,10 @@ PRODUCT_PACKAGES += \
     qca6234-service.sh \
     usf_post_boot.sh
 
+# QCOM Perf lib
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=libqti-perfd-client.so
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8974
@@ -260,6 +264,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.speaker=true \
     audio.offload.pcm.enable=false
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    mmp.enable.3g2=true \
+    mm.enable.smoothstreaming=true \
+    mm.enable.qcom_parser=37491
+
+# VIDC: debug_levels
+# 1:ERROR 2:HIGH 4:LOW 0:NOLOGS 7:AllLOGS
+PRODUCT_PROPERTY_OVERRIDES += \
+    vidc.debug.level=4
+
 # Enable more sensors
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.sensors.qmd=true \
@@ -275,9 +289,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sensors.step_detector=true \
     ro.qc.sensors.step_counter=true \
     ro.qc.sensors.max_geomag_rotvec=true \
+    ro.qc.sdk.sensors.gestures=true \
+    ro.qc.sdk.gestures.camera=false \
+    ro.qc.sdk.camera.facialproc=false \
     debug.qualcomm.sns.hal=w \
     debug.qualcomm.sns.daemon=w \
     debug.qualcomm.sns.libsensor1=w
+
+# System property for cabl
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.cabl=1 \
+    ro.qcom.ad=1 \
+    ro.qcom.ad.calib.data=/system/etc/calib.cfg
 
 # Enable Adaptive Multi-Rate Wideband
 PRODUCT_PROPERTY_OVERRIDES += \
