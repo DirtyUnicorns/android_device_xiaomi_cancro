@@ -200,7 +200,7 @@ DONT_DEXPREOPT_PREBUILTS := true
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-        $(CANCRO_PATH)/sepolicy
+    $(CANCRO_PATH)/sepolicy
 
 # Include BoardConfigVendor.mk
 -include vendor/xiaomi/cancro/BoardConfigVendor.mk
