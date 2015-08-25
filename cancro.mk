@@ -152,6 +152,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.tcpackprio.enable=true \
     ro.data.large_tcp_window_size=true
 
+ifneq ($(QCPATH),)
+# proprietary wifi display, if available
+PRODUCT_BOOT_JARS += \
+    WfdCommon
+endif
+
 # IPC router config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensors/sec_config:system/etc/sec_config
@@ -373,11 +379,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.alwaysbleon=true \
     qcom.bt.dev_power_class=1
 
-ifneq ($(QCPATH),)
-# proprietary wifi display, if available
-PRODUCT_BOOT_JARS += \
-    WfdCommon
-endif
+# Optional CM packages
+PRODUCT_PACKAGES += \
+    LiveWallpapersPicker \
+    unrar \
+    vim \
+    zip
 
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \
