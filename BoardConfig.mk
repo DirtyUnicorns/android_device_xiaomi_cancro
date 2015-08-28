@@ -26,6 +26,9 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(CANCRO_PATH)/releasetools
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(CANCRO_PATH)/include
 
+# System.prop
+TARGET_SYSTEM_PROP += $(CANCRO_PATH)/systemprop/system.prop
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 TARGET_NO_BOOTLOADER := true
