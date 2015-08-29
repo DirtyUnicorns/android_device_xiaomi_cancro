@@ -343,6 +343,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1
 
+# avoid setting cdma sim to 2g
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ril.multi_rat_capable=true
+
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8974
