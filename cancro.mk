@@ -324,7 +324,7 @@ PRODUCT_PACKAGES += \
     resize2fs_static
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/mount_ext4.sh:system/bin/mount_ext4.sh \
+    $(LOCAL_PATH)/filesystem_tools/mount_ext4.sh:system/bin/mount_ext4.sh \
     $(LOCAL_PATH)/rootdir/root/e2fsck_static:root/sbin/e2fsck_static
 
 # libxml2
