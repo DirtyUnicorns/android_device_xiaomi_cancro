@@ -14,10 +14,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Product configuration
 PRODUCT_CHARACTERISTICS := nosdcard
 
-# TWRP
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab
-
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp

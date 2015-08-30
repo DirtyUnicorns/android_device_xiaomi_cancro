@@ -53,9 +53,6 @@ COMMON_GLOBAL_CPPFLAGS += -DNO_SECURE_DISCARD
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(CANCRO_PATH)/mkbootimg/mkbootimg.mk
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 vmalloc=340M androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
-ifeq ($(SE_PERMISSIVE),true)
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-endif
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -148,16 +145,6 @@ TARGET_RECOVERY_FSTAB := $(CANCRO_PATH)/rootdir/root/fstab.qcom
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
-
-# TWRP
-TW_THEME := portrait_hdpi
-TW_INCLUDE_JB_CRYPTO := false
-TW_INCLUDE_L_CRYPTO := true
-BOARD_HAS_NO_REAL_SDCARD := true
-RECOVERY_SDCARD_ON_DATA := true
-BOARD_RECOVERY_SWIPE := true
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID  := true
 
 # CM Hardware
 BOARD_HARDWARE_CLASS += $(CANCRO_PATH)/cmhw
