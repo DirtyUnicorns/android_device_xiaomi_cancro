@@ -343,7 +343,7 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-    # cmhw VibrationHW
+    # Vibrator
     chown root system /sys/vibrator/pwmvalue
     chmod 0664 /sys/vibrator/pwmvalue
     restorecon /sys/vibrator/pwmvalue

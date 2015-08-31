@@ -14,6 +14,14 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Product configuration
 PRODUCT_CHARACTERISTICS := nosdcard
 
+# TWRP
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab
+
+# DU updater
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.du.updater=cancro
+
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
@@ -176,7 +184,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # NFC remover script for Mi4
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/nfc/removenfc.sh:/install/bin/removenfc.sh
+    $(LOCAL_PATH)/nfc/removenfc.sh:removenfc.sh
 
 # Thermal config
 PRODUCT_COPY_FILES += \
@@ -213,6 +221,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
 # Media & audio
@@ -378,13 +387,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.hfp.client=1 \
     ro.bluetooth.alwaysbleon=true \
     qcom.bt.dev_power_class=1
-
-# Optional CM packages
-PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
-    unrar \
-    vim \
-    zip
 
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \

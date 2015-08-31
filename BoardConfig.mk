@@ -53,13 +53,16 @@ COMMON_GLOBAL_CPPFLAGS += -DNO_SECURE_DISCARD
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(CANCRO_PATH)/mkbootimg/mkbootimg.mk
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 vmalloc=340M androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
+ifeq ($(SE_PERMISSIVE),true)
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+endif
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
 TARGET_KERNEL_SOURCE := kernel/xiaomi/cancro
 TARGET_KERNEL_ARCH := arm
-TARGET_KERNEL_CONFIG := cyanogen_cancro_defconfig
+TARGET_KERNEL_CONFIG := du_cancro_defconfig
 
 # Vendor init
 TARGET_UNIFIED_DEVICE := true
@@ -85,6 +88,9 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(CANCRO_PATH)/bluetooth
 QCOM_BT_USE_SMD_TTY := true
 BLUETOOTH_HCI_USE_MCT := true
+
+# NFC
+TARGET_USES_OS_NFC := true
 
 # Graphics
 USE_OPENGL_RENDERER := true
@@ -146,8 +152,15 @@ BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 
-# CM Hardware
-BOARD_HARDWARE_CLASS += $(CANCRO_PATH)/cmhw
+# TWRP
+TW_THEME := portrait_hdpi
+TW_INCLUDE_JB_CRYPTO := false
+TW_INCLUDE_L_CRYPTO := true
+BOARD_HAS_NO_REAL_SDCARD := true
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_RECOVERY_SWIPE := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID  := true
 
 # No old RPC for prop
 TARGET_NO_RPC := true

@@ -12,11 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
-TARGET_CONTINUOUS_SPLASH_ENABLED := true
-
 # Inherit from the common open source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
@@ -24,13 +19,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, device/xiaomi/cancro/cancro.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/du/config/nfc_enhanced.mk)
 
-# Inherit some common CM stuff (mini)
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
+# Inherit some common DU stuff
+$(call inherit-product, vendor/du/config/common_full_phone.mk)
 
 # Product configuration
-PRODUCT_NAME := cm_cancro
+PRODUCT_NAME := du_cancro
 PRODUCT_DEVICE := cancro
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi

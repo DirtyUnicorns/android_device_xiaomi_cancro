@@ -1,0 +1,22 @@
+[
+  {
+    "repository":   "android_device_qcom-common",
+    "target_path":  "device/qcom/common",
+    "branch":       "lollipop-caf"
+  },
+  {
+    "repository":   "android_hardware_qcom_fm",
+    "target_path":  "hardware/qcom/fm",
+    "branch":       "lollipop-caf"
+  },
+  {
+    "repository":   "android_kernel_xiaomi_cancro",
+    "target_path":  "kernel/xiaomi/cancro",
+    "branch":       "lollipop-caf"
+  },
+  {
+    "repository":   "android_vendor_xiaomi",
+    "target_path":  "vendor/xiaomi",
+    "branch":       "lollipop-caf"
+  }
+]
