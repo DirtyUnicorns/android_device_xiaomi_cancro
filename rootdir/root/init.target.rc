@@ -281,16 +281,13 @@ service changepowermode /system/bin/changepowermode.sh
 on property:sys.perf.profile=2
     start changepowermode
     stop thermal-engine
-    start thermal-perf
 
 on property:sys.perf.profile=1
     start changepowermode
-    stop thermal-perf
     start thermal-engine
 
 on property:sys.perf.profile=0
     start changepowermode
-    stop thermal-perf
     start thermal-engine
 
 on property:persist.sys.display_prefer=0
