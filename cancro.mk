@@ -184,7 +184,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # NFC remover script for Mi4
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/nfc/removenfc.sh:removenfc.sh
+    $(LOCAL_PATH)/nfc/removenfc.sh:root/sbin/removenfc.sh
 
 # Thermal config
 PRODUCT_COPY_FILES += \
@@ -330,7 +330,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/filesystem_tools/mount_ext4.sh:system/bin/mount_ext4.sh \
-    $(LOCAL_PATH)/rootdir/root/e2fsck_static:root/sbin/e2fsck_static
+    $(LOCAL_PATH)/rootdir/root/e2fsck_static:root/sbin/e2fsck_static \
+    $(LOCAL_PATH)/rootdir/root/resize2fs_static:root/sbin/resize2fs_static
 
 # libxml2
 PRODUCT_PACKAGES += \
