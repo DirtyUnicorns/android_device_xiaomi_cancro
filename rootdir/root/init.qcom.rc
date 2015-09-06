@@ -241,7 +241,7 @@ on boot
     chown system system /sys/class/leds/blue/blink
 
     chown system system /sys/devices/virtual/graphics/fb0/rgb
-    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
+    chmod 0644 /sys/devices/virtual/graphics/fb0/rgb
 
     # Enable manual network selection function and distinguish 2G/3G/4G
     setprop persist.radio.rat_on combine
