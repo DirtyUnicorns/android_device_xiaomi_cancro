@@ -364,13 +364,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     keystore.msm8974
 
-# FM radio
-PRODUCT_PACKAGES += \
-    FM2 \
-    FMRecord \
-    libqcomfm_jni \
-    qcom.fmradio
-
+# FM radio antenna props
 PRODUCT_PROPERTY_OVERRIDES += \
     hw.fm.internal_antenna=true \
     ro.fm.transmitter=false
