@@ -324,22 +324,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.enable.amr.wideband=1
 
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    make_ext4fs \
-    setup_fs \
-    mkntfs \
-    dumpe2fs \
-    resize2fs \
-    e2fsck_static \
-    mke2fs_static \
-    resize2fs_static
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/filesystem_tools/mount_ext4.sh:system/bin/mount_ext4.sh \
-    $(LOCAL_PATH)/rootdir/root/e2fsck_static:root/sbin/e2fsck_static \
-    $(LOCAL_PATH)/rootdir/root/resize2fs_static:root/sbin/resize2fs_static
-
 # libxml2
 PRODUCT_PACKAGES += \
     libxml2

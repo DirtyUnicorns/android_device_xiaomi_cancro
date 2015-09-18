@@ -18,9 +18,9 @@ def FullOTA_PostValidate(info):
 
  info.script.AppendExtra(
   ('ui_print("Resizing file system...");\n'
-   'run_program("/sbin/e2fsck_static", "-fy", "/dev/block/platform/msm_sdcc.1/by-name/system");\n'
-   'run_program("/sbin/resize2fs_static", "/dev/block/platform/msm_sdcc.1/by-name/system");\n'
-   'run_program("/sbin/e2fsck_static", "-fy", "/dev/block/platform/msm_sdcc.1/by-name/system");'))
+   'run_program("/sbin/e2fsck", "-fy", "/dev/block/platform/msm_sdcc.1/by-name/system");\n'
+   'run_program("/sbin/resize2fs", "/dev/block/platform/msm_sdcc.1/by-name/system");\n'
+   'run_program("/sbin/e2fsck", "-fy", "/dev/block/platform/msm_sdcc.1/by-name/system");'))
 
 def FullOTA_InstallEnd(info):
 
