@@ -197,7 +197,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # NFC remover script for Mi4
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/nfc/removenfc.sh:root/sbin/removenfc.sh
+    $(LOCAL_PATH)/nfc/removenfc.sh:removenfc.sh
 
 # Thermal config
 PRODUCT_COPY_FILES += \

@@ -14,6 +14,17 @@
 # limitations under the License.
 #
 
+"""Custom OTA commands for cancro devices"""
+
+import common
+import os
+
+TARGET_DIR = os.getenv('OUT')
+
+def FullOTA_Assertions(info):
+ 
+ info.output_zip.write(os.path.join(TARGET_DIR, "removenfc.sh"), "removenfc.sh")
+
 def FullOTA_PostValidate(info):
 
  info.script.AppendExtra(
@@ -26,6 +37,8 @@ def FullOTA_InstallEnd(info):
 
  info.script.AppendExtra(
   ('mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system", "");\n'
+   'package_extract_file("removenfc.sh", "/tmp/removenfc.sh");\n'
+   'set_metadata("/tmp/removenfc.sh", "uid", 0, "gid", 0, "mode", 0755);\n'
    'ui_print("Removing NFC for Mi4...");\n'
-   'run_program("/sbin/removenfc.sh");\n'
+   'run_program("/tmp/removenfc.sh");\n'
    'unmount("/system");'))
