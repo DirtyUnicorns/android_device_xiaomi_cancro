@@ -78,8 +78,7 @@ TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(CANCRO_PATH)/power/power_ext.c
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
-# FM radio flags
-QCOM_FM_ENABLED := true
+# FM radio flag
 AUDIO_FEATURE_ENABLED_FM := true
 
 # Bluetooth
