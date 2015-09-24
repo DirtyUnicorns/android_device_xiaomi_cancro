@@ -154,6 +154,7 @@ case "$target" in
         chown system.system /sys/module/cpu_boost/parameters/input_boost_freq
         chown system.system /sys/module/cpu_boost/parameters/input_boost_ms
         start mpdecision
+        setprop sys.perf.profile `getprop sys.perf.profile`
     ;;
 esac
 

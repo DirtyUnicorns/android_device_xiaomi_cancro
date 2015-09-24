@@ -34,8 +34,8 @@ on early-init
 on property:init.svc.bootanim=running
     # Switch to BFQ while booting
     write /sys/block/mmcblk0/queue/scheduler bfq
+    setprop sys.perf.profile 1
     start mpdecision
-    start thermal-engine
 
 on init
     # Set permissions for persist partition
