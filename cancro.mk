@@ -313,6 +313,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qti.sensors.step_detector=true \
     ro.qti.sensors.step_counter=true \
     ro.qti.sensors.max_geomag_rotv=60 \
+    ro.qti.sensors.ir_proximity=true \
     ro.qc.sdk.sensors.gestures=true \
     ro.qc.sdk.gestures.camera=false \
     ro.qc.sdk.camera.facialproc=false \
